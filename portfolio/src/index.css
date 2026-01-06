@@ -1,0 +1,56 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap");
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* shadcn/ui 스타일의 토큰(블루 테마) */
+:root {
+  --font-body: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+    "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-display: "Manrope", var(--font-body);
+
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+
+  --primary: 221.2 83.2% 53.3%; /* blue-600 */
+  --primary-foreground: 210 40% 98%;
+
+  --ring: 221.2 83.2% 53.3%;
+}
+
+body {
+  margin: 0;
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+}
+
+/* 기본(본문) 폰트 */
+html {
+  font-family: var(--font-body);
+}
+
+/* 제목/내비/버튼/태그 등 UI 텍스트는 display 폰트 */
+h1,
+h2,
+h3,
+.tracking-tight,
+.font-ui {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.18);
+}
