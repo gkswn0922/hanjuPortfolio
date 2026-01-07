@@ -105,10 +105,10 @@ export const projects: Project[] = [
   },
   {
     name: 'RingTalk',
-    period: '2022.04 ~ 2025.03',
-    description: 'eSIM 알림톡 전달 서비스 (Oracle Cloud VM 운영)',
+    period: '2025.08',
+    description: 'eSIM 알림톡 전달 서비스',
     summary: [
-      '실서비스 웹 애플리케이션 개발 및 유지보수',
+      '네이버 커머스를 통해 구매한 eSIM 을 알림톡으로 전송하는 자동화 백엔드 프로젝트',
       '운영 중 발생한 DB 커넥션 및 메모리 이슈를 분석하고 장애 재발 방지 구조로 개선',
       'DB 서버 설정(max_connections, timeout) 조정',
       '애플리케이션 레벨 커넥션 재연결 로직 구현',
@@ -120,6 +120,7 @@ export const projects: Project[] = [
       { src: '/projects/ringtalk/ringtalk-2.png', alt: 'RingTalk 일별 매출 현황 모달' },
       { src: '/projects/ringtalk/ringtalk-3.png', alt: 'RingTalk 수동 발송 모달' },
       { src: '/projects/ringtalk/ringtalk-4.png', alt: 'RingTalk 수동 발송 모달' },
+      { src: '/projects/ringtalk/ringtalk-5.png', alt: 'RingTalk 수동 발송 모달' },
     ],
   },
   {
@@ -139,11 +140,25 @@ export const projects: Project[] = [
       { src: '/projects/hiary/hiary-1.png', alt: 'hiaryAI 화면' },
       { src: '/projects/hiary/hiary-2.png', alt: 'hiaryAI 화면' },
       { src: '/projects/hiary/hiary-3.png', alt: 'hiaryAI 화면' },
+      { src: '/projects/hiary/hiary-4.png', alt: 'hiaryAI 화면' },
     ],
   },
   {
     name: 'Portfolio',
     period: '2026.01',
+    description: '이력/프로젝트를 카드 기반으로 정리한 개인 포트폴리오 웹',
+    summary: [
+      '프로젝트/경력 데이터를 구조화하고 UI 컴포넌트로 재사용 가능하게 구성',
+      '프로젝트 카드에 “간단 설명 + 요약 + (선택)갤러리 모달”까지 한 화면에서 확인 가능하도록 설계',
+    ],
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind'],
+    gallery: [
+      { src: '/projects/portfolio/portfolio-1.png', alt: '포트폴리오 메인' },
+    ],
+  },
+  {
+    name: 'WGO (작업중)',
+    period: '2025.12 ~',
     description: '이력/프로젝트를 카드 기반으로 정리한 개인 포트폴리오 웹',
     summary: [
       '프로젝트/경력 데이터를 구조화하고 UI 컴포넌트로 재사용 가능하게 구성',
