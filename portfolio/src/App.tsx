@@ -70,13 +70,15 @@ function App() {
                   <Card>
                     <p className="text-xs font-medium text-[hsl(var(--muted-foreground))]">경력</p>
                     <p className="mt-1 text-lg font-semibold text-[hsl(var(--foreground))]">
-                      3년차
+                      3년차 / 실서비스 운영 경험
                     </p>
                   </Card>
                   <Card>
                     <p className="text-xs font-medium text-[hsl(var(--muted-foreground))]">주력</p>
                     <p className="mt-1 text-lg font-semibold text-[hsl(var(--foreground))]">
-                      Laravel · Vue.js · Spring · Node.js
+                    백엔드 · 시스템 설계 · 운영 <br></br>
+(Laravel / Spring / Node.js)<br></br>
+Vue.js – 관리도구 및 연동 경험
                     </p>
                   </Card>
                 </div>

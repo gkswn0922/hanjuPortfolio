@@ -56,7 +56,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: 'Infra',
-    items: ['AWS', 'Linux', 'Oracle Cloud'],
+    items: ['AWS', 'Linux', 'Docker', 'Oracle Cloud'],
   },
   {
     label: '기타',
@@ -93,15 +93,15 @@ export const projects: Project[] = [
     description: '대형 미디어 고객사(CJ ENM) 대상 영상 관리 및 유통 웹 서비스',
     myRole: [
       '플랫폼 연계 기능 구현을 위한 외부 API 스펙 분석 및 연동 구조 설계',
-      'CSV 기반 배치로 해외 방송 플랫폼에 편성표/영상 메타데이터/자막을 API 호출로 업로드하는 자동화 기능 구현',
-      '대규모 데이터 기반 API 병목 구간 분석 및 쿼리 튜닝',
+      '해외 플랫폼 영상/편성표/자막/메타데이터 자동 업로드 시스템 설계·구현(단독 주도, 기여도 90%)',
+      'MySQL·Laravel 기반 데이터 저장/가공 및 리눅스 스케줄링 기반 배치 운영(1분 간격, 5일 배치)',
     ],
     summary: [
-      '응답 시간 30초 이상 소요되던 API 성능 이슈 분석',
-      'ORM 쿼리 및 시간 복잡도 점검을 통해 병목 구간 식별',
-      '1억 건 규모 테이블 파티션 구조 분석 후 Raw Query 적용 → API 응답 시간 30초 → 10초 미만으로 단축 (약 67% 개선)',
+      '방송사 API 연동으로 수동 CSV 입력을 완전 대체하여 업로드 업무 리드타임 2~3일 → 약 10분으로 단축(업무 효율 ~95% 개선)',
+      '자동화 배치 처리 결과 추적/상태 관리를 시스템화하고, 편성 담당자 커뮤니케이션 및 운영 관리까지 담당',
+      '대규모 데이터 병목 구간 분석 및 파티션 테이블 기반 Raw Query 적용으로 API 응답 30초 → 10초 미만으로 개선(약 67%)',
     ],
-    techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Jenkins', 'Linux'],
+    techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Linux'],
   },
   {
     name: 'RingTalk',
