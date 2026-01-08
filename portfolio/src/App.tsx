@@ -382,9 +382,6 @@ Vue.js – 관리도구 및 연동 경험
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <a href={`mailto:${profile.emails[0]}`} className={buttonStyles('outline')}>
-                  Contact
-                </a>
                 <a href={profile.github} target="_blank" rel="noreferrer" className={buttonStyles('default')}>
                   GitHub
                 </a>

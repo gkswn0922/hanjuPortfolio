@@ -9,7 +9,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'skills', label: '핵심 기술' },
   { id: 'projects', label: '프로젝트' },
   { id: 'career', label: '경력' },
-  { id: 'contact', label: '연락처' },
 ]
 
 function useActiveSection(items: NavItem[]) {
