@@ -16,6 +16,7 @@ export type Project = {
   name: string
   period: string
   description: string
+  badges?: string[]
   myRole?: string[]
   summary: string[]
   techStack: string[]
@@ -92,16 +93,22 @@ export const projects: Project[] = [
     period: '2022.04 ~ 2025.03',
     description: '대형 미디어 고객사(CJ ENM) 대상 영상 관리 및 유통 웹 서비스',
     myRole: [
-      '플랫폼 연계 기능 구현을 위한 외부 API 스펙 분석 및 연동 구조 설계',
-      '해외 플랫폼 영상/편성표/자막/메타데이터 자동 업로드 시스템 설계·구현(단독 주도, 기여도 90%)',
-      'MySQL·Laravel 기반 데이터 저장/가공 및 리눅스 스케줄링 기반 배치 운영(1분 간격, 5일 배치)',
+      '해외 OTT 플랫폼 연계를 위한 외부 API 스펙 분석 및 연동 구조 설계',
+      '영상/편성/자막/메타데이터를 해외 플랫폼에 자동 업로드하는 시스템 설계 및 구현',
+      '- 단독 주도로 개발 진행 (기여도 약 90%)',
+      '해외 FAST 플랫폼 자막 오류 유형을 분석하고, 업로드 단계에서 자동 검출·변환하는 시스템을 구현하여 운영 품질을 개선',
+      'MySQL–Laravel 기반 데이터 저장·가공 로직 구현 및 대용량 데이터 처리 최적화',
+      'Linux 스케줄링 기반 배치 시스템 설계 및 운영',
+      '- 1분 단위 상태 체크 배치',
+      '- 일 5회 대량 업로드 배치',
+      '운영 중 발생하는 이슈에 대한 장애 대응 및 프로세스 개선 지속 수행',
     ],
     summary: [
-      '방송사 API 연동으로 수동 CSV 입력을 완전 대체하여 업로드 업무 리드타임 2~3일 → 약 10분으로 단축(업무 효율 ~95% 개선)',
-      '자동화 배치 처리 결과 추적/상태 관리를 시스템화하고, 편성 담당자 커뮤니케이션 및 운영 관리까지 담당',
-      '대규모 데이터 병목 구간 분석 및 파티션 테이블 기반 Raw Query 적용으로 API 응답 30초 → 10초 미만으로 개선(약 67%)',
+      '고객사의 영상과 미디어를 관리하고 가공하여 sns, 국내외 ott 플랫폼에 송출할 데이터를 처리',
+      '방송사 API 연동을 통해 수동 CSV 업로드 프로세스를 완전히 대체',
+      '대용량 데이터 조회 쿼리 최적화를 통해 API 응답 속도 유의미한 개선'
     ],
-    techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Linux'],
+    techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Linux', 'Postman'],
   },
   {
     name: 'RingTalk',
@@ -151,7 +158,8 @@ export const projects: Project[] = [
       '프로젝트/경력 데이터를 구조화하고 UI 컴포넌트로 재사용 가능하게 구성',
       '프로젝트 카드에 “간단 설명 + 요약 + (선택)갤러리 모달”까지 한 화면에서 확인 가능하도록 설계',
     ],
-    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind'],
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'vercel'],
+    links: [{ label: 'GitHub', url: 'https://github.com/gkswn0922/hanjuPortfolio' }],
     gallery: [
       { src: '/projects/portfolio/portfolio-1.png', alt: '포트폴리오 메인' },
     ],
@@ -159,14 +167,18 @@ export const projects: Project[] = [
   {
     name: 'WGO (작업중)',
     period: '2025.12 ~',
-    description: '이력/프로젝트를 카드 기반으로 정리한 개인 포트폴리오 웹',
+    badges: ['개인', 'Full-Stack'],
+    description: '실시간으로 스포츠, SNS, OTT 등의 순위를 한눈에 볼 수 있는 웹 사이트',
     summary: [
-      '프로젝트/경력 데이터를 구조화하고 UI 컴포넌트로 재사용 가능하게 구성',
-      '프로젝트 카드에 “간단 설명 + 요약 + (선택)갤러리 모달”까지 한 화면에서 확인 가능하도록 설계',
+      'Laravel 실무 경험을 쌓으며 느꼈던 구조적 한계를 개선하고, 더 나은 설계를 공부하기 위한 목적',
+      'Spring 아키텍처를 분석하고 설계에 집중',
+      '기본적인 웹 퍼블리싱과 시스템 설계 단계까지 구현',
     ],
-    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind'],
+    techStack: ['React', 'Spring(Java)', 'PostgreSQL', 'Redis', 'AWS'],
     gallery: [
-      { src: '/projects/portfolio/portfolio-1.png', alt: '포트폴리오 메인' },
+      { src: '/projects/wgo/wgo-1.png', alt: 'WGO 화면 1' },
+      { src: '/projects/wgo/wgo-2.png', alt: 'WGO 화면 2' },
+      { src: '/projects/wgo/wgo-3.png', alt: 'WGO 화면 3' },
     ],
   },
 ]
