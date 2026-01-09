@@ -97,7 +97,8 @@ export const projects: Project[] = [
       '영상/편성/자막/메타데이터를 해외 플랫폼에 자동 업로드하는 시스템 설계 및 구현',
       '- 단독 주도로 개발 진행 (기여도 약 90%)',
       '해외 FAST 플랫폼 자막 오류 유형을 분석하고, 업로드 단계에서 자동 검출·변환하는 시스템을 구현하여 운영 품질을 개선',
-      'MySQL–Laravel 기반 데이터 저장·가공 로직 구현 및 대용량 데이터 처리 최적화',
+      'MySQL - Laravel 기반 데이터 저장·가공 로직 구현 및 대용량 데이터 처리 최적화',
+      '1억 건 규모 테이블 파티션 구조 분석 후 Raw Query 적용 → API 응답 시간 30초 → 10초 미만으로 단축 (약 67% 개선)',
       'Linux 스케줄링 기반 배치 시스템 설계 및 운영',
       '- 1분 단위 상태 체크 배치',
       '- 일 5회 대량 업로드 배치',
@@ -105,8 +106,6 @@ export const projects: Project[] = [
     ],
     summary: [
       '고객사의 영상과 미디어를 관리하고 가공하여 sns, 국내외 ott 플랫폼에 송출할 데이터를 처리',
-      '방송사 API 연동을 통해 수동 CSV 업로드 프로세스를 완전히 대체',
-      '대용량 데이터 조회 쿼리 최적화를 통해 API 응답 속도 유의미한 개선'
     ],
     techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Linux', 'Postman'],
   },
@@ -121,7 +120,7 @@ export const projects: Project[] = [
       '애플리케이션 레벨 커넥션 재연결 로직 구현',
       '반복되던 장애를 VM 메모리 모니터링 기반으로 장기 안정화',
     ],
-    techStack: ['Spring', 'Node.js', 'JavaScript', 'MySQL', 'Oracle Cloud'],
+    techStack: ['Spring', 'Node.js', 'JavaScript', 'MySQL', 'Oracle Cloud', 'Linux'],
     gallery: [
       { src: '/projects/ringtalk/ringtalk-1.png', alt: 'RingTalk 대시보드' },
       { src: '/projects/ringtalk/ringtalk-2.png', alt: 'RingTalk 일별 매출 현황 모달' },
