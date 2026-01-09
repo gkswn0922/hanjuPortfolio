@@ -50,6 +50,7 @@ function useActiveSection(items: NavItem[]) {
 export function Navbar() {
   const activeId = useActiveSection(NAV_ITEMS)
   const [open, setOpen] = useState(false)
+  const [visits, setVisits] = useState<number | null>(null)
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -59,24 +60,48 @@ export function Navbar() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
 
+  useEffect(() => {
+    let cancelled = false
+    ;(async () => {
+      try {
+        const res = await fetch('/api/visits', { method: 'POST' })
+        if (!res.ok) return
+        const data = (await res.json()) as { visits?: number }
+        if (cancelled) return
+        if (typeof data.visits === 'number') setVisits(data.visits)
+      } catch {
+        // ignore
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   const go = (id: string) => {
     const el = document.getElementById(id)
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     setOpen(false)
   }
 
+  const visitsLabel =
+    typeof visits === 'number' ? `Visits ${visits.toLocaleString()}` : 'Visits —'
+
   return (
     <header className="sticky top-0 z-50 border-b border-[hsl(var(--border))] bg-[hsl(var(--background))]/70 backdrop-blur">
       <Container>
         <div className="flex h-16 items-center justify-between">
-          <button
-            type="button"
-            onClick={() => go('top')}
-            className="rounded-lg px-2 py-1 text-sm font-semibold tracking-tight text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))]"
-            aria-label="맨 위로"
-          >
-            CHJ's Portfolio
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => go('top')}
+              className="rounded-lg px-2 py-1 text-sm font-semibold tracking-tight text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))]"
+              aria-label="맨 위로"
+            >
+              CHJ's Portfolio
+            </button>
+            <span className="text-xs text-[hsl(var(--muted-foreground))]">{visitsLabel}</span>
+          </div>
 
           <nav className="hidden items-center gap-1 md:flex">
             {NAV_ITEMS.map((item) => {
