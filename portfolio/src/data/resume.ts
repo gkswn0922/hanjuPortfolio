@@ -173,7 +173,7 @@ export const projects: Project[] = [
       'Spring 아키텍처를 분석하고 설계에 집중',
       '기본적인 웹 퍼블리싱과 시스템 설계 단계까지 구현',
     ],
-    techStack: ['React', 'Spring(Java)', 'PostgreSQL', 'Redis', 'AWS'],
+    techStack: ['React', 'Spring(Java)', 'PostgreSQL', 'Redis', 'AWS', 'docker'],
     gallery: [
       { src: '/projects/wgo/wgo-1.png', alt: 'WGO 화면 1' },
       { src: '/projects/wgo/wgo-2.png', alt: 'WGO 화면 2' },
