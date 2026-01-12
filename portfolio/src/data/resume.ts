@@ -88,17 +88,14 @@ export const experiences: Experience[] = [
       '대규모 데이터 조회 지연을 슬로우쿼리/배포 전후 로그로 검증하며 조회 전략을 개선',
       '외부 플랫폼 연동은 실패 추적/재처리 가능한 구조로 설계해 운영 리스크를 통제',
     ],
-    techStack: ['운영 장애 대응', '성능 개선(병목 분석)', '외부 API 연동/배치 설계', '상태/추적/재처리'],
+    techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Linux'],
   },
   {
     company: 'JoyLabs',
     role: '프론트엔드 개발자',
     duration: '2025.04 ~ 2025.09 (4개월)',
-    summary: [
-      '화면 구현을 넘어 API 계약(성공/실패), 데이터 흐름, 에러/로딩 상태까지 포함해 품질을 개선',
-      '관리자 영역은 Role 기반 접근 통제로 권한 경계를 명확히 하고, 권한 오류 케이스에서 사용자 영향 최소화',
-    ],
-    techStack: ['API 연동 설계', '상태/에러 처리', '권한/보안 고려'],
+    summary: ['Vue.js / React 기반 웹 페이지 개발 및 백엔드 API 연동'],
+    techStack: ['TypeScript', 'Vue.js', 'Tiptap', 'Firebase', 'AWS'],
     link: '',
   },
 ]
@@ -152,7 +149,7 @@ export const projects: Project[] = [
       '검증: 테스트 계정으로 시나리오를 반복 점검하며 회귀를 줄임',
       '보안/권한: 인증 상태 및 권한에 따른 접근 제어를 전제로 데이터 흐름을 구성',
     ],
-    techStack: ['API 계약/에러 처리', '상태 기반 화면 설계', '권한/보안 고려'],
+    techStack: ['Vue 3', 'Vite', 'Firebase(Auth/Firestore)', 'Tiptap'],
     links: [{ label: 'GitHub', url: 'https://github.com/gkswn0922/hiary-frontend' }],
     gallery: [
       { src: '/projects/hiary/hiary-1.png', alt: 'hiaryAI 화면' },
@@ -170,7 +167,7 @@ export const projects: Project[] = [
       '설계 결정: 프로젝트/경력 데이터를 구조화하고 “문제-결정-검증-범위”가 한 화면에서 읽히도록 카드/모달 UI로 구성',
       '검증: 이미지 로딩 실패/빈 데이터 등 실패 상태를 UI에서 처리해 사용자 경험을 보완',
     ],
-    techStack: ['데이터 구조화', '컴포넌트 설계', '실패 상태 처리'],
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'vercel'],
     links: [{ label: 'GitHub', url: 'https://github.com/gkswn0922/hanjuPortfolio' }],
     gallery: [
       { src: '/projects/portfolio/portfolio-1.png', alt: '포트폴리오 메인' },
