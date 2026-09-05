@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백엔드 개발자 이력서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 80px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+        
+        .header .name-en {
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .divider {
+            height: 2px;
+            background: #000;
+            margin-bottom: 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 15px 0;
+            margin-bottom: 20px;
+        }
+        
+        .info-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .info-value {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .info-value a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .info-value a:hover {
+            text-decoration: underline;
+        }
+        
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 15px 0;
+        }
+        
+        .skill-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .skill-items {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .experience-item {
+            margin-bottom: 40px;
+        }
+        
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .exp-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .exp-period {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .exp-company {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .exp-description {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        
+        .exp-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .exp-list li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+        
+        .exp-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #333;
+        }
+        
+        .project-item {
+            margin-bottom: 35px;
+        }
+        
+        .project-header {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .project-badge {
+            font-size: 12px;
+            color: #0066cc;
+            border: 1px solid #0066cc;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+        
+        .project-subtitle {
+            font-size: 15px;
+            color: #000;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .project-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-list li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+        
+        .project-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #333;
+        }
+        
+        .highlight {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .closing-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            padding: 25px;
+            background: #f8f8f8;
+            border-left: 3px solid #000;
+            margin-top: 40px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>조한주</h1>
+            <div class="name-en">Backend / Full-Stack Developer</div>
+            <div class="name-en" style="margin-top: 5px;">경력 3년 · 즉시 실무 투입 가능</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="divider"></div>
+            
+            <div class="info-grid">
+                <div class="info-label">이메일</div>
+                <div class="info-value"><a href="mailto:whgkswn0922@naver.com">whgkswn0922@naver.com</a></div>
+                
+                <div class="info-label">연락처</div>
+                <div class="info-value">010-8757-6482</div>
+                
+                <div class="info-label">GitHub</div>
+                <div class="info-value"><a href="https://github.com/gkswn0922" target="_blank">https://github.com/gkswn0922</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">SUMMARY</h2>
+            <div class="divider"></div>
+            
+            <p class="intro-text">
+                실제 서비스를 운영하면서 발생하는 장애나 성능 문제를 끝까지 추적해서 해결해왔습니다. 문제가 생기면 원인을 찾아내고, 같은 일이 반복되지 않도록 근본적인 해결책을 마련하는 것에 집중합니다.
+            </p>
+            
+            <p class="intro-text">
+                Laravel로 실서비스를 약 3년간 운영하면서 실시간 장애 대응을 해왔고, 네이버, 카카오, eSIM, 기타 OTT 외부 플랫폼 API 연동, 고객사 요구사항 대응 등을 경험했습니다. 최근에는 더 나은 구조 설계를 위해 Spring을 공부하면서 확장 가능하고 유지보수하기 좋은 백엔드를 만드는 방법을 익혀가고 있습니다.
+            </p>    
+
+            <p class="intro-text">
+                MCP를 활용해 AI 에이전트를 구성하고, 프롬프트 설계를 통해 업무 자동화 및 생산성 향상에 초점을 맞추고 있습니다.
+            </p> 
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="divider"></div>
+            
+            <div class="skills-container">
+                <div class="skill-label">Backend</div>
+                <div class="skill-items">장애를 “원인-영향-복구-재발 방지”로 분해해 구조로 해결 · 외부 연동/배치의 실패를 상태/재처리 관점으로 설계</div>
+                
+                <div class="skill-label">Frontend</div>
+                <div class="skill-items">API 계약(성공/실패) 기반으로 데이터 흐름 설계 · 로딩/에러/권한/타임아웃 등 실패 상태까지 포함해 UX 품질 책임</div>
+                
+                <div class="skill-label">Database</div>
+                <div class="skill-items">대규모 데이터 조회 병목 분석(로그/슬로우쿼리) · 파티션/인덱스 고려한 조회 전략으로 성능 개선</div>
+                
+                <div class="skill-label">Infra / Tools</div>
+                <div class="skill-items">운영 환경 모니터링/로그 기반 트러블슈팅 · 커넥션/리소스 한계 상황에서 즉시 조치 및 안정화</div>
+                
+                <div class="skill-label">Collaboration</div>
+                <div class="skill-items">기획 단계 리스크 리뷰/설계 합의 · 장애 대응/재현 절차 문서화 · 고객 영향도/우선순위 기반 커뮤니케이션</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">EXPERIENCE</h2>
+            <div class="divider"></div>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">Laravel 풀스택 개발자</div>
+                    <div class="exp-period">2년 11개월</div>
+                </div>
+                <div class="exp-company">(주)제머나이소프트</div>
+                
+                <ul class="exp-list">
+                    <li>Laravel 기반 웹 서비스 백엔드/프론트엔드 개발 및 실서비스 운영</li>
+                    <li>고객사(CJ ENM) 대응용 영상 관리 웹 서비스 Cocos 개발 참여</li>
+                    <li>국내외 영상 플랫폼 연계를 위한 외부 API 분석 및 연동 기능 구현</li>
+                    <li>영상 메타데이터, 자막, 편성표 정보를 외부 플랫폼에 업로드하는 기능 설계</li>
+                    <li>기획 단계에서 비즈니스 로직 및 기술적 리스크 사전 검토로 커뮤니케이션 비용 절감</li>
+                    <li>운영 환경 장애 원인 분석 및 재발 방지 대응</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">프론트엔드 개발자</div>
+                    <div class="exp-period">4개월</div>
+                </div>
+                <div class="exp-company">JoyLabs</div>
+                
+                <ul class="exp-list">
+                    <li>Vue.js / React 기반 웹 페이지 개발</li>
+                    <li>백엔드 API 연동 및 UI 개선 작업 수행</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">PROJECTS</h2>
+            <div class="divider"></div>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Cocos</div>
+                    <div class="project-badge">실무</div>
+                    <div class="project-badge">Full-Stack</div>
+                </div>
+                <div class="project-subtitle">대형 미디어 고객사(CJ ENM) 대상 영상 관리 및 유통 웹 서비스</div>
+                <div class="project-description">PHP · Laravel · JavaScript · MySQL · Jenkins</div>
+                
+                <ul class="project-list">
+                    <li>사내 아카이빙·트랜스코딩된 영상의 웹 활용 기능 제공</li>
+                    <li>해외 플랫폼 연계를 위한 API 분석 및 연동</li>
+                    <li>고객사 요구사항 반영 및 운영 대응</li>
+                    <li>Jira와 Jenkins를 활용한 QA, 배포, CI/CD 유지보수 업무 수행</li>
+                    <li>1억 건 규모 테이블 파티션 구조 분석 및 Raw Query 적용으로 API 응답 시간을 30초 이상에서 10초 미만으로 개선</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">RingTalk</div>
+                    <div class="project-badge">실무</div>
+                    <div class="project-badge">Backend</div>
+                </div>
+                <div class="project-subtitle">eSIM 알림톡 전달 서비스</div>
+                <div class="project-description">Spring (Java) · Node.js · JavaScript · MySQL · Oracle Cloud</div>
+                
+                <ul class="project-list">
+                    <li>네이버커머스, eSIM, Kakao 알림톡 API를 활용하여 네이버스토어를 통해 eSIM을 구매한 고객에게 QR 코드 알림톡 전송을 돕는 배치 프로젝트</li>
+                    <li>Oracle Cloud VM 환경 실서비스 운영</li>
+                    <li>VM 메모리 부족 및 DB 커넥션 끊김 장애 발생</li>
+                    <li>DB 재연결 로직(reconnect: true) 적용, 끊어진 연결에 대해 재연결하지 않는 로직 구현으로 장애 해결 및 안정화</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">hiaryAI</div>
+                    <div class="project-badge">실무</div>
+                    <div class="project-badge">Frontend</div>
+                </div>
+                <div class="project-subtitle">TIL을 위한 에디터 및 블로그 프로젝트</div>
+                <div class="project-description">
+                    Vue 3 · Vite · Firebase(Auth/Firestore) · Tiptap
+                </div>
+                
+                <ul class="project-list">
+                    <li>해당 프로젝트의 클로즈베타까지 참여</li>
+                    <li>이메일 회원가입/인증, 로그인, 비밀번호 재설정(인증 링크 처리), Google 로그인 등 인증과 계정 플로우를 구현</li>
+                    <li>회원가입 이후 온보딩 및 추가정보 수집 화면을 구현</li>
+                    <li>TIL과 대시보드 모듈을 구조화</li>
+                    <li>Tiptap 기반 에디터를 사용</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">WGO (작업중)</div>
+                    <div class="project-badge">개인</div>
+                    <div class="project-badge">Full-Stack</div>
+                </div>
+                <div class="project-subtitle">실시간으로 스포츠, SNS, OTT 등의 순위를 한눈에 볼 수 있는 웹 사이트</div>
+                <div class="project-description">React · Spring (Java) · PostgreSQL · Redis · AWS</div>
+                
+                <ul class="project-list">
+                    <li>Laravel 실무 경험을 쌓으면서 느꼈던 구조적 한계를 개선하고, 더 나은 설계를 공부하기 위한 목적</li>
+                    <li>Spring 아키텍처를 분석하고 설계에 집중</li>
+                    <li>기본적인 웹 퍼블리싱과 시스템 설계 단계까지 구현</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">WORK STYLE</h2>
+            <div class="divider"></div>
+            
+            <ul class="exp-list">
+                <li>기획서를 받으면 비즈니스 로직과 기술적인 리스크를 미리 검토</li>
+                <li>배포 전에 테스트 케이스와 QA 테스트를 정리</li>
+                <li>유지보수와 인수인계를 위한 문서화 및 커뮤니케이션</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">CERTIFICATION & EDUCATION</h2>
+            <div class="divider"></div>
+            
+            <ul class="exp-list">
+                <li>정보처리산업기사 (2020년 12월)</li>
+                <li>서일대학교(초대졸) (2017년 02월 ~ 2022년 06월)</li>
+            </ul>
+        </div>
+
+        <div class="closing-text">
+            실서비스 운영과 고객사 대응 경험을 바탕으로, 바로 실무에 투입되어 안정적인 서비스를 만들어갈 수 있습니다.
+        </div>
+    </div>
+</body>
+</html>

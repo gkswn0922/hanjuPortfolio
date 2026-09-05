@@ -65,23 +65,6 @@ function App() {
                 <p className="mt-4 text-base leading-relaxed text-[hsl(var(--muted-foreground))]">
                   {profile.headline}
                 </p>
-
-                <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                  <Card>
-                    <p className="text-xs font-medium text-[hsl(var(--muted-foreground))]">경력</p>
-                    <p className="mt-1 text-lg font-semibold text-[hsl(var(--foreground))]">
-                      3년차 / 실서비스 운영 경험
-                    </p>
-                  </Card>
-                  <Card>
-                    <p className="text-xs font-medium text-[hsl(var(--muted-foreground))]">주력</p>
-                    <p className="mt-1 text-lg font-semibold text-[hsl(var(--foreground))]">
-                    백엔드 · 시스템 설계 · 운영 <br></br>
-(Spring / Laravel / Node.js)<br></br>
-Vue.js – 관리도구 및 연동 경험
-                    </p>
-                  </Card>
-                </div>
               </div>
             </div>
           </Container>
@@ -89,6 +72,22 @@ Vue.js – 관리도구 및 연동 경험
 
         <Section id="about" title="소개" subtitle="운영 안정성과 성능을 중심으로 문제를 해결해왔습니다.">
           <div className="grid gap-4">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Card>
+                <p className="text-xs font-medium text-[hsl(var(--muted-foreground))]">경력</p>
+                <p className="mt-1 text-lg font-semibold text-[hsl(var(--foreground))]">
+                  3년차 · 풀스택 개발자
+                </p>
+              </Card>
+              <Card>
+                <p className="text-xs font-medium text-[hsl(var(--muted-foreground))]">주력</p>
+                <p className="mt-1 text-lg font-semibold text-[hsl(var(--foreground))]">
+                  Spring / Laravel / Node.js 백엔드
+                  <br />
+                  React / Vue.js 프론트엔드
+                </p>
+              </Card>
+            </div>
             <Card>
               <div className="flex items-center justify-between gap-3">
                 <p className="text-sm font-semibold text-[hsl(var(--foreground))]">연락처</p>
@@ -196,14 +195,47 @@ Vue.js – 관리도구 및 연동 경험
                 {project.myRole && project.myRole.length > 0 ? (
                   <div className="mt-4">
                     <p className="text-xs font-semibold text-[hsl(var(--foreground))]">내가 맡은 부분</p>
-                    <ul className="mt-2 space-y-2 text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-                      {project.myRole.map((line) => (
-                        <li key={line} className="flex gap-2">
-                          <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]/80" />
-                          <span>{line}</span>
-                        </li>
+                    <div className="mt-2 space-y-3">
+                      {project.myRole.map((roleCase, idx) => (
+                        <div
+                          key={idx}
+                          className={
+                            project.myRole!.length > 1
+                              ? 'rounded-xl border border-[hsl(var(--border))] p-3'
+                              : ''
+                          }
+                        >
+                          {project.myRole!.length > 1 ? (
+                            <p className="mb-2 text-xs font-semibold text-[hsl(var(--primary))]">
+                              사례 {idx + 1}
+                            </p>
+                          ) : null}
+                          <ul className="space-y-2 text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
+                            <li className="flex gap-2">
+                              <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]/80" />
+                              <span>
+                                <span className="font-semibold text-[hsl(var(--foreground))]">문제 </span>
+                                {roleCase.problem}
+                              </span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]/80" />
+                              <span>
+                                <span className="font-semibold text-[hsl(var(--foreground))]">해결 </span>
+                                {roleCase.solution}
+                              </span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]/80" />
+                              <span>
+                                <span className="font-semibold text-[hsl(var(--foreground))]">검증 </span>
+                                {roleCase.verification}
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 ) : null}
 

@@ -12,12 +12,18 @@ export type Experience = {
   link?: string
 }
 
+export type RoleCase = {
+  problem: string
+  solution: string
+  verification: string
+}
+
 export type Project = {
   name: string
   period: string
   description: string
   badges?: string[]
-  myRole?: string[]
+  myRole?: RoleCase[]
   summary: string[]
   techStack: string[]
   links?: Array<{ label: string; url: string }>
@@ -108,9 +114,11 @@ export const projects: Project[] = [
     period: '2026.02 ~ 현재',
     description: '정비·출동 서비스가 필요한 고객과 기사를 연결하는 배차 웹앱',
     myRole: [
-      '문제: 사고·정비 현장과 가까운 기사가 어디 있는지 알 수 없어 배차가 늦어짐',
-      '해결: 기사 앱이 꺼져 있어도(백그라운드 상태) FCM 푸시로 앱을 깨운 뒤 위치 정보를 GraphQL로 전송하도록 구현하고, Redis로 "1분에 한 번"이라는 규칙을 둬서 푸시가 너무 자주 가지 않도록 제한',
-      '검증: 사내 인원에게 테스트 앱을 배포해 실제로 이동하면서 위치가 잘 전달되는지 확인하고, 암호화해 저장한 좌표(latitude/longitude)가 카카오맵 마커로 정상 표시되는 것까지 확인',
+      {
+        problem: '사고·정비 현장과 가까운 기사가 어디 있는지 알 수 없어 배차가 늦어짐',
+        solution: '기사 앱이 꺼져 있어도(백그라운드 상태) FCM 푸시로 앱을 깨운 뒤 위치 정보를 GraphQL로 전송하도록 구현하고, Redis로 "1분에 한 번"이라는 규칙을 둬서 푸시가 너무 자주 가지 않도록 제한',
+        verification: '사내 인원에게 테스트 앱을 배포해 실제로 이동하면서 위치가 잘 전달되는지 확인하고, 암호화해 저장한 좌표(latitude/longitude)가 카카오맵 마커로 정상 표시되는 것까지 확인',
+      },
     ],
     summary: [
       '위치 데이터 흐름(FCM으로 깨우기 → GraphQL 전송 → Redis로 빈도 제어)을 설계해 배차 지연 문제를 구조적으로 해결',
@@ -154,18 +162,23 @@ export const projects: Project[] = [
     period: '2022.04 ~ 2025.03',
     description: '대형 미디어 고객사(CJ ENM) 대상 영상 관리 및 유통 웹 서비스',
     myRole: [
-      '문제: 데이터가 많은 구간에서 특정 API가 느려져 운영 대기와 고객 문의로 이어짐',
-      '해결: 테이블 파티션 구조에 맞게 조회 방식을 다시 설계하고, 느린 구간은 Raw Query로 직접 제어해 응답 속도를 줄임',
-      '검증: 배포 전/후 로그와 느린 쿼리로 병목과 개선 효과를 확인(30초 이상 → 10초 미만)',
-      '문제: 송출 장비(솔박스)가 지원하지 않는 자막 인코딩(예: utf-16le)을 올리면 자막이 깨져 송출 실패나 품질 문제로 이어짐',
-      '해결: 자막 업로드 단계에서 인코딩을 자동으로 감지하고, 지원하지 않는 인코딩이면 UTF-8로 변환하도록 만듦',
-      '검증: 문제가 됐던 자막 파일로 재현해보고 변환 로직을 적용한 뒤, 정상적으로 업로드되고 자막이 잘 나오는 것을 확인',
+      {
+        problem: '데이터가 많은 구간에서 특정 API가 느려져 운영 대기와 고객 문의로 이어짐',
+        solution: '테이블 파티션 구조에 맞게 조회 방식을 다시 설계하고, 느린 구간은 Raw Query로 직접 제어해 응답 속도를 줄임',
+        verification: '배포 전/후 로그와 느린 쿼리로 병목과 개선 효과를 확인(30초 이상 → 10초 미만)',
+      },
+      {
+        problem: '송출 장비(솔박스)가 지원하지 않는 자막 인코딩(예: utf-16le)을 올리면 자막이 깨져 송출 실패나 품질 문제로 이어짐',
+        solution: '자막 업로드 단계에서 인코딩을 자동으로 감지하고, 지원하지 않는 인코딩이면 UTF-8로 변환하도록 만듦',
+        verification: '문제가 됐던 자막 파일로 재현해보고 변환 로직을 적용한 뒤, 정상적으로 업로드되고 자막이 잘 나오는 것을 확인',
+      },
     ],
     summary: [
       '대량의 데이터와 외부 연동에서 생기는 실패 위험을 구조 개선과 검증으로 관리한 운영 프로젝트',
       '느려지는 구간은 로그와 느린 쿼리로 찾고, 구조를 바꾼 뒤 실제로 좋아졌는지 확인해서 유지',
+      'CJ ENM 국내외 플랫폼 송출용 편성표를 Laravel Excel로 자동 생성 — 프로그램별 회차를 정해진 시간대에 맞춰 파싱해 엑셀로 뽑아주는 기능을 crontab 스케줄링으로 구현해, 담당자가 수기로 만들던 시간 대비 3배 이상 단축',
     ],
-    techStack: ['PHP', 'Laravel', 'JavaScript', 'MySQL', 'Linux', 'Postman'],
+    techStack: ['PHP', 'Laravel', 'Laravel Excel', 'JavaScript', 'MySQL', 'Linux', 'Postman'],
   },
   {
     name: 'RingTalk',
@@ -191,14 +204,15 @@ export const projects: Project[] = [
   {
     name: 'hiaryAI',
     period: '2025.04 ~ 2025.09',
-    description: 'TIL을 위한 에디터 및 블로그 프로젝트',
+    description: 'TIL(오늘 배운 것)을 기록하고 공유하는 에디터 · 블로그 서비스, 클로즈 베타까지 참여',
     summary: [
-      '문제: 회원가입·로그인 같은 인증 과정은 한 번만 실패해도 사용자가 바로 이탈하기 때문에, 예외 상황을 얼마나 잘 처리하는지가 품질을 좌우함',
-      '해결: 가입, 인증, 로그인, 비밀번호 재설정, 온보딩을 각각 상태별로 나누고, 실패 상황(링크 만료, 권한 없음, 에러 등)도 화면 흐름 안에서 처리하도록 구성',
-      '검증: 테스트 계정으로 시나리오를 반복 점검하며 회귀를 줄임',
-      '보안: 로그인 여부와 권한에 따라 접근을 제한하는 것을 기본 전제로 데이터 흐름을 구성',
+      '이메일 회원가입 · 인증 · 로그인 · 비밀번호 재설정 · 온보딩으로 이어지는 인증 플로우를 상태별로 구현하고, 링크 만료·권한 없음 같은 예외 상황도 화면 흐름 안에서 자연스럽게 처리',
+      'Tiptap 기반 에디터로 글을 쓰고, 트렌딩 · 태그별 추천을 보여주는 탐색(Explore) 피드와 대시보드로 이어지는 블로그 서비스 구성',
+      '게시글 제목을 기반으로 Canvas API로 OG 이미지를 자동 생성해, SNS에 공유했을 때 보이는 썸네일까지 신경씀',
+      '다크모드, 세션 만료 알림, 반응형 사이드바 등 실제 사용성을 고려한 디테일을 함께 구현',
+      'Firebase Auth로 로그인 상태를 관리하고, 트렌딩 API가 실패해도 기본 데이터로 화면이 비지 않도록 방어적으로 설계',
     ],
-    techStack: ['Vue 3', 'Vite', 'Firebase(Auth/Firestore)', 'Tiptap'],
+    techStack: ['Vue 3', 'TypeScript', 'Pinia', 'Vite', 'TailwindCSS', 'Firebase(Auth/Firestore)', 'Tiptap'],
     links: [{ label: 'GitHub', url: 'https://github.com/gkswn0922/hiary-frontend' }],
     gallery: [
       { src: '/projects/hiary/hiary-1.png', alt: 'hiaryAI 화면' },
@@ -210,11 +224,11 @@ export const projects: Project[] = [
   {
     name: 'Portfolio',
     period: '2026.01',
-    description: '이력/프로젝트를 카드 기반으로 정리한 개인 포트폴리오 웹',
+    description: '이력/프로젝트를 카드 기반으로 정리한 개인 포트폴리오 웹 (지금 보고 계신 이 사이트)',
     summary: [
-      '문제: 기술 목록만 나열해서는 실제로 어떤 일을 했는지(설계, 검증, 책임 범위)가 잘 전달되지 않음',
-      '해결: 경력과 프로젝트 데이터를 구조화하고 "문제-해결-검증-범위"가 한 화면에서 읽히도록 카드/모달 UI로 구성',
-      '검증: 이미지 로딩 실패, 빈 데이터 등 실패 상태를 UI에서 처리해 사용자 경험을 보완',
+      '경력과 프로젝트 데이터를 하나의 TypeScript 파일로 구조화해, 내용을 고칠 때마다 화면 곳곳을 따로 손보지 않아도 되도록 구성',
+      '프로젝트 스크린샷은 갤러리 모달로 확대해서 볼 수 있게 만들고, 이미지 로딩 실패 · 빈 데이터 같은 상황에도 화면이 깨지지 않도록 처리',
+      'Card · Badge · Tag 같은 재사용 컴포넌트로 디자인을 통일하고, Vercel에 배포해 계속 업데이트하며 운영',
     ],
     techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'vercel'],
     links: [{ label: 'GitHub', url: 'https://github.com/gkswn0922/hanjuPortfolio' }],
