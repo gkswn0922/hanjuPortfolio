@@ -153,6 +153,42 @@ function App() {
           </div>
         </Section>
 
+        <Section id="career" title="경력" subtitle="업무 범위와 성과를 요약했습니다.">
+          <div className="grid gap-4">
+            <Timeline>
+            {experiences.map((exp) => (
+              <TimelineItem
+                key={`${exp.company}-${exp.role}`}
+                title={`${exp.company} — ${exp.role}`}
+                subtitle={exp.duration}
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="default">Experience</Badge>
+                  {exp.techStack.slice(0, 2).map((t) => (
+                    <Badge key={t}>{t}</Badge>
+                  ))}
+                </div>
+
+                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
+                  {exp.summary.map((line) => (
+                    <li key={line} className="flex gap-2">
+                      <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]/80" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {exp.techStack.map((t) => (
+                    <Tag key={t}>{t}</Tag>
+                  ))}
+                </div>
+              </TimelineItem>
+            ))}
+            </Timeline>
+          </div>
+        </Section>
+
         <Section id="projects" title="프로젝트" subtitle="문제 분석 → 개선 → 효과 검증 중심으로 정리했습니다.">
           <div className="grid gap-4 md:grid-cols-2">
             {projects.map((project) => (
@@ -300,43 +336,7 @@ function App() {
           slides={gallerySlides}
           onClose={() => setGalleryOpen(false)}
         />
-
-        <Section id="career" title="경력" subtitle="업무 범위와 성과를 요약했습니다.">
-          <div className="grid gap-4">
-            <Timeline>
-            {experiences.map((exp) => (
-              <TimelineItem
-                key={`${exp.company}-${exp.role}`}
-                title={`${exp.company} — ${exp.role}`}
-                subtitle={exp.duration}
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant="default">Experience</Badge>
-                  {exp.techStack.slice(0, 2).map((t) => (
-                    <Badge key={t}>{t}</Badge>
-                  ))}
-                </div>
-
-                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-                  {exp.summary.map((line) => (
-                    <li key={line} className="flex gap-2">
-                      <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]/80" />
-                      <span>{line}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {exp.techStack.map((t) => (
-                    <Tag key={t}>{t}</Tag>
-                  ))}
-                </div>
-              </TimelineItem>
-            ))}
-            </Timeline>
-          </div>
-        </Section>
-{/* 
+{/*
         <Section id="contact" title="연락처" subtitle="편하게 연락 주세요.">
           <div className="grid gap-4 sm:grid-cols-2">
             <Card>

@@ -7,8 +7,8 @@ export type NavItem = { id: string; label: string }
 export const NAV_ITEMS: NavItem[] = [
   { id: 'about', label: '소개' },
   { id: 'skills', label: '핵심 기술' },
-  { id: 'projects', label: '프로젝트' },
   { id: 'career', label: '경력' },
+  { id: 'projects', label: '프로젝트' },
 ]
 
 function useActiveSection(items: NavItem[]) {
